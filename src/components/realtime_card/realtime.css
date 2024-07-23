@@ -1,0 +1,18 @@
+.realtime-card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+.realtime-card-content .realtime-data-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.realtime-card-content .realtime-heading {
+  text-transform: uppercase;
+  line-height: 4;
+}/*# sourceMappingURL=realtime.css.map */

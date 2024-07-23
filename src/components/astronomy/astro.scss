@@ -1,0 +1,45 @@
+@import "../../scss/mixins";
+@import "../../scss/breakpoints";
+
+.astro-card-content{
+    @include flexCenterSpaceAroundRow;
+    height: 100%;
+    width: 100%;
+
+    .astro-data-card{
+        @include flexCenterSpaceAroundColumn;
+        
+        .astro-heading{
+            text-transform: uppercase;
+            line-height: 4;
+            
+        }
+        .astro-content{
+            font-size: map-get($font-size , m );
+        }
+    }
+    
+}
+
+@include breakpoint(sm){
+    .astro-card-content{
+        @include flexCenterSpaceAroundColumn;
+        height: fit-content;
+        width: 100%;
+    
+        .astro-data-card{
+            @include flexCenterSpaceAroundRow;
+            width: 100%;
+            
+            .astro-heading{
+                text-transform: uppercase;
+                line-height: 4;
+                
+            }
+            .astro-content{
+                font-size: map-get($font-size , s );
+            }
+        }
+        
+    }
+}

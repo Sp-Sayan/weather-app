@@ -1,0 +1,89 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+@import "../../scss/breakpoints";
+
+.main-card-content{
+    @include flexCenterColumn;
+    height: 100%;
+    width: 100%;
+    font-size: map-get($font-size , l );
+    line-height: 2;
+    
+    
+
+
+    .temp-overall{
+        @include flexCenterSpaceBetweenRow;
+        height: auto;
+        width: 100%;
+        font-size: map-get($font-size , l );
+        font-weight: map-get($font-weight , bold );
+        
+        .weather-icon{
+            height: 8vh;
+            
+        }
+    }
+    .place-box{
+        display: flex;
+
+        .place{
+            font-size: map-get($font-size , s ); 
+           
+        }
+    }
+
+    .date-time{
+        width: auto;
+        display: flex;
+        
+        .time{
+            margin-right: 1vw;
+        }
+    }
+}
+
+@include breakpoint(sm){
+    .main-card-content{
+        @include flexCenterColumn;
+        height: 100%;
+        width: 100%;
+        padding-left: 10px;
+        font-size: map-get($font-size , m );
+        line-height: 2;
+        
+    
+        .temp-overall{
+            @include flexCenterSpaceBetweenRow;
+            height: auto;
+            width: 100%;
+            font-size: map-get($font-size , l );
+            font-weight: map-get($font-weight , bold );
+            
+            .weather-icon{
+                height: 10vh;
+                
+            }
+        }
+        .place-box{
+            display: flex;
+    
+            .place{
+                font-size: map-get($font-size , s ); 
+               
+            }
+        }
+        
+        .condition{
+            font-size: map-get($font-size , s );
+        }
+        .date-time{
+            width: auto;
+            display: flex;
+            
+            .time{
+                margin-right: 1vw;
+            }
+        }
+    }
+}

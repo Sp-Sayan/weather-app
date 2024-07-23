@@ -1,0 +1,79 @@
+.main-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 2em;
+  line-height: 2;
+}
+.main-card-content .temp-overall {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  width: 100%;
+  font-size: 2em;
+  font-weight: 600;
+}
+.main-card-content .temp-overall .weather-icon {
+  height: 8vh;
+}
+.main-card-content .place-box {
+  display: flex;
+}
+.main-card-content .place-box .place {
+  font-size: 1em;
+}
+.main-card-content .date-time {
+  width: auto;
+  display: flex;
+}
+.main-card-content .date-time .time {
+  margin-right: 1vw;
+}
+
+@media ((min-width: 300px) and (max-width: 720px)) {
+  .main-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 1.5em;
+    line-height: 2;
+  }
+  .main-card-content .temp-overall {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .main-card-content .temp-overall .weather-icon {
+    height: 10vh;
+  }
+  .main-card-content .place-box {
+    display: flex;
+  }
+  .main-card-content .place-box .place {
+    font-size: 1em;
+  }
+  .main-card-content .condition {
+    font-size: 1em;
+  }
+  .main-card-content .date-time {
+    width: auto;
+    display: flex;
+  }
+  .main-card-content .date-time .time {
+    margin-right: 1vw;
+  }
+}/*# sourceMappingURL=temp.css.map */

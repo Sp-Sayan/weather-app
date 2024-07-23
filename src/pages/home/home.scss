@@ -1,0 +1,139 @@
+@import "../../scss/mixins";
+@import "../../components/navbar/navbar.scss";
+@import "../../components/main_temp/temp.scss";
+@import "../../components/realtime_card/realtime.scss";
+@import "../../components/astronomy/astro.scss";
+@import "../../components/searchResult/SearchResult.scss";
+@import "../../scss/breakpoints";
+
+.preview-content{
+    @include flexCenterSpaceAroundColumn;
+    font-weight: 100;
+    font-size: map-get($font-size , xl );
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+
+    .warning{
+        font-style: italic;
+        font-size: map-get($font-size , s );
+    }
+}
+
+
+
+.home-content{
+    @include flexCenterSpaceAroundRow;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    
+        
+    .bg-img{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        z-index: -99;
+        
+    }
+    
+
+    .main-temp-card{
+        
+        height: 90%;
+        width: 40%;
+        background: transparent;
+        // box-shadow: 10px -5px 20px black;
+        // border: 2px solid black;
+        border-radius: 40px;
+        // backdrop-filter: blur(2px);
+        
+    }
+
+    .side-report-card{
+        @include flexCenterSpaceAroundColumn;
+        height: 70%;
+        width: 50%;
+        
+
+        .realtime-card{
+            height: 30%;
+            width: 80%;
+            background: transparent;
+            border-radius: 40px;
+            backdrop-filter: blur(50px);
+            border: 1px solid transparent;
+            box-shadow: 10px -5px 20px black;
+
+            
+        }
+        .astro-card{
+            height: 30%;
+            width: 80%;
+            background: transparent;
+            border-radius: 40px;
+            backdrop-filter: blur(50px);
+            box-shadow: 10px -5px 20px black;
+        }
+    }
+    
+}
+
+@include breakpoint(sm){
+
+    .preview-content{
+        @include flexCenterSpaceAroundColumn;
+        font-weight: 100;
+        font-size: map-get($font-size , m );
+        width: 100%;
+        
+        .warning{
+            font-style: italic;
+            font-size: map-get($font-size , s );
+        }
+        
+        
+    }
+
+
+    .home-content{
+        height: fit-content;
+        @include flexCenterSpaceAroundColumn;
+        .main-temp-card{
+        
+            height: 70%;
+            width: 80%;
+            background: transparent;
+            // box-shadow: 10px -5px 20px black;
+            // border: 2px solid black;
+            // backdrop-filter: blur(2px);
+            
+        }
+        .side-report-card{
+            
+            height: 90vh;
+            width: 100%;
+            
+    
+            .realtime-card{
+                height: fit-content;
+                width: 90%;
+                border-radius: 20px;
+                backdrop-filter: blur(15px);
+                border: 1px solid transparent;
+                box-shadow: 5px 0px 10px black;
+                
+    
+                
+            }
+            .astro-card{
+                height: fit-content;
+                width: 90%;
+                border-radius: 20px;
+                backdrop-filter: blur(15px);
+                box-shadow: 5px 0px 10px black;
+            }
+        }
+    }
+}
+

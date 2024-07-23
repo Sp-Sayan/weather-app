@@ -1,0 +1,71 @@
+.navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100vw;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .site-name {
+  padding-left: 5%;
+  font-size: 2em;
+  font-weight: 600;
+}
+.navbar .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  width: 30vw;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0px 10px;
+}
+.navbar .search-bar .search {
+  position: relative;
+  font-size: 1.5em;
+  height: 100%;
+  width: 90%;
+  border-radius: 20px;
+  resize: none;
+  padding: 10px 10px;
+  outline: none;
+  border: none;
+  scrollbar-width: none;
+  overflow: none;
+}
+.navbar .search-bar .search-icon-container {
+  height: 80%;
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 30px;
+}
+.navbar .search-bar .search-icon-container .search-icon {
+  position: relative;
+  left: -20;
+  cursor: pointer;
+  color: black;
+}
+
+@media ((min-width: 300px) and (max-width: 720px)) {
+  .navbar {
+    height: 20vh;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .navbar .site-name {
+    font-weight: 600;
+  }
+  .navbar .search-bar {
+    width: 90vw;
+  }
+}/*# sourceMappingURL=navbar.css.map */

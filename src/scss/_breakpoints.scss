@@ -1,0 +1,18 @@
+$breakpoints : (
+    // "xs": "(min-width: 300px) and (max-width: 380px)",
+    "sm": "(min-width: 300px) and (max-width: 720px)",
+    "md": "(min-width: 721px) and (max-width: 1023px)",
+    "lg": "(min-width: 1024px)",
+);
+
+@mixin breakpoint($user-value){
+    $my-map: map-get($breakpoints , $user-value );
+    @if $my-map{
+        @media(#{$my-map}) {
+            @content;
+        }
+    }
+    @else{
+        @error "No such defined value";
+    }
+};

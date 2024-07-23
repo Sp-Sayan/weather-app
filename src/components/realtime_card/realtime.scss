@@ -1,0 +1,48 @@
+@import "../../scss/mixins";
+@import "../../scss/breakpoints";
+
+
+.realtime-card-content{
+    @include flexCenterSpaceAroundRow;
+    
+    height: 100%;
+    width: 100%;
+
+    .realtime-data-card{
+        @include flexCenterSpaceAroundColumn;
+        
+        .realtime-heading{
+            text-transform: uppercase;
+            line-height: 4;
+        }
+
+        .realtime-content{
+            font-size: map-get($font-size , m );
+        }
+    }
+    
+}
+
+@include breakpoint(sm){
+    .realtime-card-content{
+        @include flexCenterSpaceAroundColumn;
+        
+        height: fit-content;
+        width: 100%;
+    
+        .realtime-data-card{
+            @include flexCenterSpaceAroundRow;
+            width: 80%;
+            
+            .realtime-heading{
+                text-transform: uppercase;
+                line-height: 4;
+            }
+    
+            .realtime-content{
+                font-size: map-get($font-size , m );
+            }
+        }
+        
+    }
+}

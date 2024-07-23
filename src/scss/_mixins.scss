@@ -1,0 +1,35 @@
+@mixin flexCenterSpaceAroundRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+@mixin flexCenterSpaceBetweenRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+@mixin flexCenterSpaceAroundColumn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+@mixin flexCenterSpaceBetweenColumn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+@mixin flexCenterColumn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flexCenterRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,85 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+@import "../../scss/breakpoints";
+
+.navbar{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 10vh;
+    width: 100vw;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+   
+
+    .site-name{
+        padding-left: 5%;
+        font-size: map-get($font-size , l );
+        font-weight: map-get($font-weight , bold );
+    }
+    .search-bar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 5vh ;
+        width: 30vw;
+        background-color: white;
+        border-radius: 20px;
+        padding: 0px 10px;
+        
+        .search{
+            position: relative;
+            font-size: map-get($font-size , m ) ;
+            height: 100%;
+            width: 90%;
+            border-radius: 20px;
+            resize: none;
+            padding: 10px 10px;
+            outline: none;
+            border: none;
+            scrollbar-width: none;
+            overflow: none;
+        }
+        .search-icon-container{
+            height: 80%;
+            width: 10%;
+            
+            @include flexCenterSpaceAroundRow;
+            border-radius: 30px;
+            .search-icon{
+                position: relative;
+                left: -20;
+                cursor: pointer;
+                color: black;
+                
+            }
+        }
+    }
+}
+
+
+@include breakpoint(sm){
+    .navbar{
+        height: 20vh;
+        padding: 5%;
+        // border: 1px solid red;
+        @include flexCenterSpaceAroundColumn;
+
+        .site-name{
+            
+            font-weight: map-get($font-weight , bold );
+        }
+
+        .search-bar{
+            
+            width: 90vw;
+        }
+    }
+    
+}
+
+
+
