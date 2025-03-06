@@ -25,15 +25,15 @@ export default function Home(props) {
   );
 
   const [uv, setUV] = useState("1");
-  const [windspeed, setWindSpeed] = useState("9");
-  const [winddir, setWindDir] = useState("SSW");
-  const [feelslike, setFeelsLike] = useState("29.2");
-  const [humidity, setHumidity] = useState("94");
+  const [windspeed, setWindSpeed] = useState("");
+  const [winddir, setWindDir] = useState("");
+  const [feelslike, setFeelsLike] = useState("");
+  const [humidity, setHumidity] = useState("");
 
-  const [sunrise, setSunRise] = useState("4:00PM");
-  const [sunset, setSunSet] = useState("4:00PM");
-  const [moonrise, setMoonRise] = useState("4:00PM");
-  const [moonset, setMoonSet] = useState("4:00PM");
+  const [sunrise, setSunRise] = useState("");
+  const [sunset, setSunSet] = useState("");
+  const [moonrise, setMoonRise] = useState("");
+  const [moonset, setMoonSet] = useState("");
 
   const [searchfill, setSearchFill] = useState("");
   const [searchresult, setSearchResult] = useState([]);
@@ -69,35 +69,6 @@ export default function Home(props) {
     //console.log(searchparam);
   };
 
-  //for current(temp) data
-  const handleCurrent = (e1, e2, e3, e4, e5, e6) => {
-    setCity(e1);
-    setLocalTime(e2);
-    setTemp(e3);
-    setWeatherCond(e4);
-    setCountry(e5);
-    setIcon(e6);
-    //console.log(city);
-  };
-
-  //for realtime data
-  const handleReal = (e1, e2, e3, e4, e5) => {
-    setUV(e1);
-    setWindSpeed(e2);
-    setWindDir(e3);
-    setFeelsLike(e4);
-    setHumidity(e5);
-    //console.log(uv);
-  };
-
-  //for astronomy data
-  const handleAstro = (e1, e2, e3, e4) => {
-    setSunRise(e1);
-    setSunSet(e2);
-    setMoonRise(e3);
-    setMoonSet(e4);
-  };
-
   return (
     <>
       <Navbar
@@ -121,11 +92,11 @@ export default function Home(props) {
         </>
       ) : (
         <div>
-          {/* <SearchResult
+          <SearchResult
             data={searchresult}
             immediatedata={searchfill}
             SearchCompleted={handleSearchCompleted}
-          /> */}
+          />
           <div className="home-content">
             <motion.div
               initial={{ scale: 1 }}
@@ -134,14 +105,7 @@ export default function Home(props) {
               transition={{ duration: 0.5, type: "spring", stiffness: 700 }}
               className="main-temp-card"
             >
-              <Temp
-                city={city}
-                localtime={localtime}
-                temperature={temperature}
-                weathercond={weathercond}
-                country={country}
-                icon={icon}
-              />
+              <Temp />
             </motion.div>
             <div className="side-report-card">
               <motion.div
@@ -174,25 +138,14 @@ export default function Home(props) {
                 }}
                 className="astro-card"
               >
-                <Astro
-                  sunrise={sunrise}
-                  sunset={sunset}
-                  moonrise={moonrise}
-                  moonset={moonset}
-                />
+                <Astro />
               </motion.div>
               <p>
                 Made with <span>❤</span> by Sayan
               </p>
             </div>
-            <Main_data
-              data={searchparam}
-              onFetchCode={handleCode}
-              onFetchCurr={handleCurrent} // Callback function called from main_data to send data
-              onFetchReal={handleReal} // Callback function called from main_data to send data
-              onFetchError={handleError}
-            />
-            <Astro_data data={searchparam} onFetchAstro={handleAstro} />
+            <Main_data data={searchparam} />
+            <Astro_data data={searchparam} />
             {/* <SearchComp
               data={searchfill}
               onFetchSearchResult={handleSearchResult}

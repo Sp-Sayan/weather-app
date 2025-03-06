@@ -1,26 +1,29 @@
 import React from "react";
+import { useAppSelector } from "../../redux/hooks";
 
-export default function astro(props) {
+export default function astro() {
+  const astronomy = useAppSelector((state) => state.astro);
+
   const astro = [
     {
       id: 1,
       name: "Sunrise",
-      content: props.sunrise,
+      content: astronomy.sunrise,
     },
     {
       id: 2,
       name: "Sunset",
-      content: props.sunset,
+      content: astronomy.sunset,
     },
     {
       id: 3,
       name: "Moonrise",
-      content: props.moonrise,
+      content: astronomy.moonrise,
     },
     {
       id: 4,
       name: "Moonset",
-      content: props.moonset,
+      content: astronomy.moonset,
     },
   ];
 
