@@ -1,31 +1,36 @@
 import React from "react";
+import { useAppSelector } from "../../redux/hooks";
 
-export default function Realtime(props) {
+export default function Realtime() {
+  const real = useAppSelector((state) => state.realtime);
+
+  console.log(real.uv);
+
   const realtime = [
     {
       id: 1,
       name: "UV",
-      content: props.uv,
+      content: real.uv,
     },
     {
       id: 2,
       name: "Wind (kph)",
-      content: props.windspeed,
+      content: real.windspeed,
     },
     {
       id: 3,
       name: "Wind Direction",
-      content: props.winddir,
+      content: real.winddir,
     },
     {
       id: 4,
       name: "Feels Like",
-      content: props.feelslike + " C",
+      content: real.feelslike + " C",
     },
     {
       id: 5,
       name: "Humidity",
-      content: props.humidity,
+      content: real.humidity,
     },
   ];
   return (

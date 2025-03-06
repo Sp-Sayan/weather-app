@@ -1,49 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
+import { setMainTempData } from "../redux/slices/mainTemp/index";
+import { useAppDispatch } from "../redux/hooks";
+import { setRealTimeData } from "../redux/slices/realtime/index";
+
 export default function Main_data(props) {
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [localtime, setLocalTime] = useState("");
-  const [temperature, setTemp] = useState("");
-  const [uv, setUV] = useState("");
-  const [windspeed, setWindSpeed] = useState("");
-  const [winddir, setWindDir] = useState("");
-  const [feelslike, setFeelsLike] = useState("");
-  const [humidity, setHumidity] = useState("");
-  const [weathercond, setWeatherCond] = useState("");
-  const [icon, setIcon] = useState("");
-  const [weathercode, setWeatherCode] = useState();
-
-  // const [error, setError] = useState(false);
-
-  //console.log(props.data);
-  // const sendError = () => {
-  //   props.onFetchError(error);
-  //   setError(false);
-  // };
-  const sendCode = () => {
-    props.onFetchCode(weathercode);
-  };
-  const sendCurr = () => {
-    if (city && localtime && temperature && weathercond && country && icon)
-      props.onFetchCurr(
-        city,
-        localtime,
-        temperature,
-        weathercond,
-        country,
-        icon
-      );
-  };
-
-  const sendRealtime = () => {
-    if (uv && windspeed && winddir && feelslike && humidity)
-      props.onFetchReal(uv, windspeed, winddir, feelslike, humidity);
-  };
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const current = () => {
+    async function fetch_realtime() {
       const options = {
         method: "GET",
         url: "https://weatherapi-com.p.rapidapi.com/current.json",
@@ -54,66 +20,49 @@ export default function Main_data(props) {
           "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
         },
       };
+      try {
+        const response = await axios.request(options);
 
-      async function fetch_realtime() {
-        try {
-          const response = await axios.request(options);
-          //Temp
-          setCity(response.data.location.name);
-          setCountry(response.data.location.country);
-          setLocalTime(response.data.location.localtime);
-          setTemp(response.data.current.temp_c);
-          setWeatherCond(response.data.current.condition.text);
-          setIcon(response.data.current.condition.icon);
-          setWeatherCode(response.data.current.condition.code);
-          //Realtime
-          setUV(response.data.current.uv);
-          setWindSpeed(response.data.current.wind_kph);
-          setWindDir(response.data.current.wind_dir);
-          setFeelsLike(response.data.current.feelslike_c);
-          setHumidity(response.data.current.humidity);
+        //logs
+        // console.log(response.data.location.name);
+        // console.log(response.data.location.localtime);
+        // console.log(response.data.current.temp_c);
+        // console.log(response.data.current.uv);
+        // console.log(response.data.current.wind_kph);
+        // console.log(response.data.current.wind_dir);
+        // console.log(response.data.current.feelslike_c);
 
-          //logs
-          console.log(response.data.location.name);
-          console.log(response.data.location.localtime);
-          console.log(response.data.current.temp_c);
-          console.log(response.data.current.uv);
-          console.log(response.data.current.wind_kph);
-          console.log(response.data.current.wind_dir);
-          console.log(response.data.current.feelslike_c);
-        } catch (error) {
-          console.error(error);
-          // setError(true);
-        }
+        dispatch(
+          setMainTempData({
+            city: response.data.location.name,
+            country: response.data.location.country,
+            localtime: response.data.location.localtime,
+            temperature: response.data.current.temp_c,
+            weathercond: response.data.current.condition.text,
+            icon: response.data.current.condition.icon,
+            weathercode: response.data.current.condition.code,
+          })
+        );
+
+        dispatch(
+          setRealTimeData({
+            uv: response.data.current.uv,
+            windspeed: response.data.current.wind_kph,
+            winddir: response.data.current.wind_dir,
+            feelslike: response.data.current.feelslike_c,
+            humidity: response.data.current.humidity,
+          })
+        );
+      } catch (error) {
+        console.error(error);
+        // setError(true);
       }
-      fetch_realtime();
-    };
+    }
+
     if (props.data) {
-      current();
+      fetch_realtime();
     }
   }, [props.data]);
 
-  if (
-    city &&
-    localtime &&
-    temperature &&
-    weathercond &&
-    country &&
-    icon &&
-    uv &&
-    windspeed &&
-    winddir &&
-    feelslike &&
-    humidity
-  ) {
-    sendCurr();
-    sendRealtime();
-  }
-  if (weathercode) {
-    sendCode();
-  }
-  // if (error) {
-  //   sendError();
-  // }
   return;
 }
