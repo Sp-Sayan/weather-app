@@ -16,7 +16,7 @@ export default function Main_data(props) {
         params: { q: props.data },
         headers: {
           "x-rapidapi-key":
-            "5855a33cfamsh4c0ba46a227ead6p104687jsneb419b209fef",
+            "fdab083b45msh9932602cddafef5p1a1373jsnbd7e00b1b706", //ashok2007das api
           "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
         },
       };

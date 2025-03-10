@@ -30,10 +30,10 @@ export default function Home(props) {
   const [feelslike, setFeelsLike] = useState("");
   const [humidity, setHumidity] = useState("");
 
-  const [sunrise, setSunRise] = useState("");
-  const [sunset, setSunSet] = useState("");
-  const [moonrise, setMoonRise] = useState("");
-  const [moonset, setMoonSet] = useState("");
+  // const [sunrise, setSunRise] = useState("");
+  // const [sunset, setSunSet] = useState("");
+  // const [moonrise, setMoonRise] = useState("");
+  // const [moonset, setMoonSet] = useState("");
 
   const [searchfill, setSearchFill] = useState("");
   const [searchresult, setSearchResult] = useState([]);
@@ -57,10 +57,10 @@ export default function Home(props) {
   };
 
   //for climate code
-  const handleCode = (e) => {
-    //console.log(e);
-    props.onFetch(e);
-  };
+  // const handleCode = (e) => {
+  //   //console.log(e);
+  //   props.onFetch(e);
+  // };
 
   //for final search data
   const handleData = (e1) => {
@@ -92,11 +92,11 @@ export default function Home(props) {
         </>
       ) : (
         <div>
-          <SearchResult
+          {/*<SearchResult
             data={searchresult}
             immediatedata={searchfill}
             SearchCompleted={handleSearchCompleted}
-          />
+          />*/}
           <div className="home-content">
             <motion.div
               initial={{ scale: 1 }}
